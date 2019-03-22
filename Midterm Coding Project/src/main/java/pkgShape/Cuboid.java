@@ -41,17 +41,13 @@ public class Cuboid  extends Rectangle{
 		throw new UnsupportedOperationException("CompareTo not supported for a cuboid, use SortByArea or SortByVolume");
 	}
 	
-	public static class SortByArea implements Comparator<Cuboid>{
-		SortByArea(){}
-		
+	public static class SortByArea implements Comparator<Cuboid>{		
 		public int compare(Cuboid a, Cuboid b) {
 			return (int)(a.area() - b.area());
 		}
 	}
 	
 	public static class SortByVolume implements Comparator<Cuboid>{
-		SortByVolume(){}
-		
 		public int compare(Cuboid a, Cuboid b) {
 			return (int)(a.volume() - b.volume());
 		}
