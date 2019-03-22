@@ -1,5 +1,7 @@
 package pkgShape;
 
+import java.util.Comparator;
+
 public class Cuboid  extends Rectangle{
 
 	private int iDepth;
@@ -16,7 +18,7 @@ public class Cuboid  extends Rectangle{
 		this.iDepth = iDepth;
 	}
 
-	public int getiDepth() {
+	public int getiDepth() {		 
 		return iDepth;
 	}
 	
@@ -34,7 +36,24 @@ public class Cuboid  extends Rectangle{
 		throw new UnsupportedOperationException("Perimeter not supported for a cuboid");
 	}
 	
+	@Override
+	public int compareTo(Object that) {
+		throw new UnsupportedOperationException("CompareTo not supported for a cuboid, use SortByArea or SortByVolume");
+	}
 	
+	public static class SortByArea implements Comparator<Cuboid>{
+		SortByArea(){}
+		
+		public int compare(Cuboid a, Cuboid b) {
+			return (int)(a.area() - b.area());
+		}
+	}
 	
-	
+	public static class SortByVolume implements Comparator<Cuboid>{
+		SortByVolume(){}
+		
+		public int compare(Cuboid a, Cuboid b) {
+			return (int)(a.volume() - b.volume());
+		}
+	}
 }
